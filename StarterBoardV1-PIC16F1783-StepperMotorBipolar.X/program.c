@@ -360,7 +360,7 @@ void smotor_MoveStep(uint8_t step) {
             smotor_Out4 = 0;
             break;
             
-        case 4: // A!B
+        case 4: // !AB
             smotor_Out1 = 0;
             smotor_Out2 = 1;
             smotor_Out3 = 1;
