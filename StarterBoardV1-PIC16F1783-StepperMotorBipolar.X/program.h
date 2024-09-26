@@ -31,10 +31,6 @@ extern "C" {
 #define smotor_Out2        LATBbits.LATB0
 #define smotor_Out3        LATCbits.LATC4
 #define smotor_Out4        LATCbits.LATC3
-    
-#define NEUTRAL             0
-#define CLOCKWISE           1
-#define COUNTER_CLOCKWISE   2
 
     
     void delay_x1o5us(uint8_t delay);
