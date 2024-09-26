@@ -77,8 +77,6 @@ void programLoop(void) {
     uint32_t delay = 10; // Variable for wait before next motor step
     int32_t angleStep = 0; // Variable to track angle step
     
-    uint8_t direction = NEUTRAL; // Set direction as neutral in the beginning
-    
     while(1) {
         while(!pb_Right) { // Rotate stepper motor clockwise
             stepMotor++; // Increment for step
@@ -92,8 +90,6 @@ void programLoop(void) {
             lcd_PrintDigitInt32(angleStep, 8, true, true); // Display angle step on LCD
             
             delay_ms(delay); // Wait before next step
-            
-            direction = CLOCKWISE; // Set direction to clockwise
             
             smotor_Rest();
         }
@@ -110,8 +106,6 @@ void programLoop(void) {
             lcd_PrintDigitInt32(angleStep, 8, true, true); // Display angle step on LCD
             
             delay_ms(delay); // Wait before next step
-            
-            direction = COUNTER_CLOCKWISE; // Set direction to counter clockwise
             
             smotor_Rest();
         }
@@ -130,8 +124,6 @@ void programLoop(void) {
                 lcd_Goto(1, 0);
                 lcd_PrintDigitInt32(angleStep, 8, true, true);
                 
-                if(angleStep==0) direction = NEUTRAL;
-                
                 smotor_Rest();
             }
             
@@ -147,8 +139,6 @@ void programLoop(void) {
                 
                 lcd_Goto(1, 0);
                 lcd_PrintDigitInt32(angleStep, 8, true, true);
-                
-                if(angleStep==0) direction = NEUTRAL;
                 
                 smotor_Rest();
             }
