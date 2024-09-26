@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/debug\StarterBoardV1-PIC16F1783-StepperMotorBipolar.X.debug.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>4096</length>
+      <used>1287</used>
+      <free>2809</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>512</length>
+      <used>66</used>
+      <free>446</free>
+    </memory>
+  </executable>
+</project>
