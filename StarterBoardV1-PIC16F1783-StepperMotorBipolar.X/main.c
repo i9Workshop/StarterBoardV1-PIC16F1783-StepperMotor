@@ -24,9 +24,12 @@
 
 
 void main(void) {
-    programInitialize();
+    delay_ms(200); // Wait for PSU power up
+    delay_ms(141); // Wait for device to start up
+    
+    programInitialize(); // Initialize prorgram
     
     while(1) {
-        programLoop();
+        programLoop(); // Main prorgram
     }
 }
