@@ -258,19 +258,18 @@ void lcd_PrintInt32(int32_t number) {
             i2 = 0,
             totalDigit = 0;
     
-    char numberRevChar[11]; // Declare array to store number in reverse char format
-    char numberChar[11]; // Declare array to store number in char format
+    char numberRevChar[11];
+    char numberChar[11];
     
-    // Initialise array
     memset(numberRevChar, 0, 11);
     memset(numberChar, 0, 11);
     
-    if(number<0) { // Condition if number is negative value
+    if(number<0) {
         lcd_PrintChar('-');
         number = labs(number);
     }
     
-    do { // Store a single number in reverse to numberRevChar[]
+    do {
         int32_t tempN = number;
         number /= 10;
         char tempC = (char)(tempN -10 * number);
@@ -278,9 +277,9 @@ void lcd_PrintInt32(int32_t number) {
         i1++;
     } while(number);
     
-    totalDigit = i1; // Get total number of digit
+    totalDigit = i1;
     
-    for(i1=totalDigit, i2=0; i1>0; i1--, i2++) { // Reverse numberRevChar[]
+    for(i1=totalDigit, i2=0; i1>0; i1--, i2++) {
         numberChar[i2] = numberRevChar[i1-1];
     }
     
@@ -292,21 +291,20 @@ void lcd_PrintDigitInt32(int32_t number, uint8_t noDigit, bool enSign, bool enZe
             i2 = 0,
             totalDigit = 0;
     
-    char numberRevChar[11]; // Declare array to store number in reverse char format
-    char numberChar[11]; // Declare array to store number in char format
+    char numberRevChar[11];
+    char numberChar[11];
     
-    // Initialise array
     memset(numberRevChar, 0, 11);
     memset(numberChar, 0, 11);
     
-    if(number<0) { // Condition if number is negative value
+    if(number<0) {
         if(enSign) lcd_PrintChar('-');
         number = labs(number);
     } else {
         if(enSign) lcd_PrintChar(' ');
     }
     
-    do { // Store a single number in reverse to numberRevChar[]
+    do {
         int32_t tempN = number;
         number /= 10;
         char tempC = (char)(tempN -10 * number);
@@ -314,14 +312,14 @@ void lcd_PrintDigitInt32(int32_t number, uint8_t noDigit, bool enSign, bool enZe
         i1++;
     } while(number);
     
-    totalDigit = i1; // Get total number of digit
+    totalDigit = i1;
     
     for(i1=0; i1<(noDigit-totalDigit); i1++) {
         if(enZero) lcd_PrintChar('0');
         else lcd_PrintChar(' ');
     }
     
-    for(i1=totalDigit, i2=0; i1>0; i1--, i2++) { // Reverse numberRevChar[]
+    for(i1=totalDigit, i2=0; i1>0; i1--, i2++) {
         numberChar[i2] = numberRevChar[i1-1];
     }
     
